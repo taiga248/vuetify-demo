@@ -10,6 +10,21 @@
 
       <v-spacer></v-spacer>
 
+      <!-- Dropdown start -->
+      <v-menu offset-y>
+        <template v-slot:activator="{ on }">
+          <v-btn  text v-on="on">
+            Dropdown Menu
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="(link, index) in links" :key="index" router :to="link.route">
+            <v-list-item-title>{{ link.text }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu> 
+      <!-- Dropdown end -->
+
       <v-btn text color="grey--text" to="/sns">
         <span>contact</span>
         <v-icon right>mdi-email-outline</v-icon>
