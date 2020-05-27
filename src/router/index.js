@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import About from '../views/About.vue'
 import Skill from '../views/Grid.vue'
+import Card from '../views/Card.vue'
 import SNS from '../views/SNS.vue'
 
 Vue.use(VueRouter)
@@ -16,6 +17,11 @@ Vue.use(VueRouter)
     path: '/Grid',
     name: 'Grid',
     component: Skill
+  },
+  {
+    path: '/Card',
+    name: 'Card',
+    component: Card
   },
   {
     path: '/SNS',
