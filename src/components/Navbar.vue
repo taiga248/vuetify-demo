@@ -45,7 +45,8 @@ export default {
       links : [
         {icon: 'mdi-account', text: 'About', route: '/'},
         {icon: 'mdi-grease-pencil', text: 'Grid', route: '/Grid'},
-        {icon: 'mdi-cellphone', text: 'SNS', route: '/sns'},
+        {icon: 'mdi-format-color-fill', text: 'Card', route: '/Card'},
+        {icon: 'mdi-cellphone', text: 'SNS', route: '/SNS'},
       ],
     }
   },
