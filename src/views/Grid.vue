@@ -38,47 +38,34 @@
         </v-flex>
       </v-layout>
       <br>
-      <v-card class="ma-3 pa-3">
-        <v-layout raw wrap>
-          <v-flex xs12 md6>
-            <div class="caption grey--text">Project title</div>
-            <p>index</p>
+      <v-divider class="pa-3"></v-divider>
+      <h1>DashBoard</h1>
+      <v-card class="my-4" v-for="project in projects" :key="project.title">
+        <v-layout row wrap class="pa-5 m1">
+          <v-flex xs12 md5>
+            <div class="grey--text">Project title</div>
+            <div>{{ project.title }}</div>
           </v-flex>
           <v-flex xs4 md2>
             <div class="caption grey--text">Assigned Team</div>
-            <p>3-A</p>
+            <div>{{ project.team }}</div>
           </v-flex>
-          <v-flex xs4 md2>
+          <v-flex xs3 md2>
             <div class="caption grey--text">Place</div>
-            <p>Kanagawa</p>
+            <div>{{ project.place }}</div>
           </v-flex>
-          <v-flex xs4 md2>
+          <v-flex xs3 md2>
             <div class="caption grey--text">Date</div>
-            <p>{{ this.year }}</p>
+            <div>{{ project.date }}</div>
+          </v-flex>
+          <v-flex xs2 md1>
+            <div>
+              <!-- なぜかできない status で色変更 -->
+              <v-chip :class="`${project.status} white--text grey caption my-2`">{{ project.status }}</v-chip>
+            </div>
           </v-flex>
         </v-layout>
       </v-card>
-      <v-card class="ma-3 pa-3">
-        <v-layout raw wrap>
-          <v-flex xs12 md6>
-            <div class="caption grey--text">Project title</div>
-            <p>index</p>
-          </v-flex>
-          <v-flex xs4 md2>
-            <div class="caption grey--text">Assigned Team</div>
-            <p>3-A</p>
-          </v-flex>
-          <v-flex xs4 md2>
-            <div class="caption grey--text">Place</div>
-            <p>Kanagawa</p>
-          </v-flex>
-          <v-flex xs4 md2>
-            <div class="caption grey--text">Date</div>
-            <p>{{ this.year }}</p>
-          </v-flex>
-        </v-layout>
-      </v-card>
- 
     </v-container>
   </div>
 </template>
@@ -88,8 +75,29 @@ export default {
   name: 'Grid',
   data() {
     return {
-      year: new Date().getFullYear()
+      projects: [
+        {title: 'Project-1', team: 'B', place: 'Kanagawa', date: '2019', status: 'done'},
+        {title: 'Project-2', team: 'A', place: 'Chiba',    date: '2020', status: 'done'},
+        {title: 'Project-3', team: 'C', place: 'Tokyo',    date: '2020', status: 'progress'},
+        {title: 'Project-4', team: 'A', place: 'Osaka',    date: '2020', status: 'todo'},
+      ]
     }
   },
 }
 </script>
+
+<style scoped>
+.done {
+  background: rgb(10, 132, 255);
+  color: blue;
+}
+.progress {
+  background: rgb(48, 209, 88);
+  color: green;
+}
+.todo {
+  background: rgb(255, 55, 95);
+  color: red;
+}
+
+</style>
