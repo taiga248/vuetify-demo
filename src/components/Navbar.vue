@@ -2,7 +2,7 @@
   <nav>
     <v-app-bar app>
       <v-icon v-if="!drawer" left class="grey--text" @click="toggle">mdi-menu</v-icon>
-      
+
       <v-toolbar-title>
         <span class="font-weight-light">Energy</span>
         <span>TG</span>
@@ -13,16 +13,14 @@
       <!-- Dropdown start -->
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
-          <v-btn  text v-on="on">
-            Dropdown Menu
-          </v-btn>
+          <v-btn text v-on="on">Dropdown Menu</v-btn>
         </template>
         <v-list>
-          <v-list-item v-for="(link, index) in links" :key="index" router :to="link.route">
+          <v-list-item v-for="(link, index) in links" :key="index" :to="link.route">
             <v-list-item-title>{{ link.text }}</v-list-item-title>
           </v-list-item>
         </v-list>
-      </v-menu> 
+      </v-menu>
       <!-- Dropdown end -->
 
       <v-btn text color="grey--text" to="/sns">
@@ -47,28 +45,26 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
   </nav>
 </template>
 
 <script>
-
 export default {
   data() {
     return {
       drawer: false,
-      links : [
-        {icon: 'mdi-account', text: 'About', route: '/'},
-        {icon: 'mdi-grease-pencil', text: 'Grid', route: '/Grid'},
-        {icon: 'mdi-format-color-fill', text: 'Card', route: '/Card'},
-        {icon: 'mdi-cellphone', text: 'SNS', route: '/SNS'},
-      ],
-    }
+      links: [
+        { icon: "mdi-account", text: "About", route: "/" },
+        { icon: "mdi-grease-pencil", text: "Grid", route: "/Grid" },
+        { icon: "mdi-format-color-fill", text: "Card", route: "/Card" },
+        { icon: "mdi-cellphone", text: "SNS", route: "/SNS" }
+      ]
+    };
   },
   methods: {
     toggle: function() {
-      this.drawer = !this.drawer
+      this.drawer = !this.drawer;
     }
   }
-}
+};
 </script>

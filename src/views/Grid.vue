@@ -16,7 +16,7 @@
           <v-btn block>4</v-btn>
         </v-flex>
       </v-layout>
-      <br>
+      <br />
       <v-layout row wrap>
         <v-flex xs6 md4>
           <v-btn block>1</v-btn>
@@ -28,7 +28,7 @@
           <v-btn block>3</v-btn>
         </v-flex>
       </v-layout>
-      <br>
+      <br />
       <v-layout row wrap justify-space-around>
         <v-flex xs4 md6>
           <v-btn block>1</v-btn>
@@ -37,7 +37,7 @@
           <v-btn block>2</v-btn>
         </v-flex>
       </v-layout>
-      <br>
+      <br />
       <v-divider class="pa-3"></v-divider>
       <h1>DashBoard</h1>
       <v-card class="my-4" v-for="project in projects" :key="project.title">
@@ -61,7 +61,9 @@
           <v-flex xs2 md1>
             <div>
               <!-- なぜかできない status で色変更 -->
-              <v-chip :class="`${project.status} white--text grey caption my-2`">{{ project.status }}</v-chip>
+              <v-chip
+                :class="`${project.status} white--text grey caption my-2`"
+              >{{ project.status }}</v-chip>
             </div>
           </v-flex>
         </v-layout>
@@ -72,18 +74,42 @@
 
 <script>
 export default {
-  name: 'Grid',
+  name: "Grid",
   data() {
     return {
       projects: [
-        {title: 'Project-1', team: 'B', place: 'Kanagawa', date: '2019', status: 'done'},
-        {title: 'Project-2', team: 'A', place: 'Chiba',    date: '2020', status: 'done'},
-        {title: 'Project-3', team: 'C', place: 'Tokyo',    date: '2020', status: 'progress'},
-        {title: 'Project-4', team: 'A', place: 'Osaka',    date: '2020', status: 'todo'},
+        {
+          title: "Project-1",
+          team: "B",
+          place: "Kanagawa",
+          date: "2019",
+          status: "done"
+        },
+        {
+          title: "Project-2",
+          team: "A",
+          place: "Chiba",
+          date: "2020",
+          status: "done"
+        },
+        {
+          title: "Project-3",
+          team: "C",
+          place: "Tokyo",
+          date: "2020",
+          status: "progress"
+        },
+        {
+          title: "Project-4",
+          team: "A",
+          place: "Osaka",
+          date: "2020",
+          status: "todo"
+        }
       ]
-    }
-  },
-}
+    };
+  }
+};
 </script>
 
 <style scoped>
@@ -99,5 +125,4 @@ export default {
   background: rgb(255, 55, 95);
   color: red;
 }
-
 </style>
