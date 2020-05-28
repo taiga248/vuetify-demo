@@ -13,7 +13,7 @@
       <!-- Dropdown start -->
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
-          <v-btn text v-on="on">Dropdown Menu</v-btn>
+          <v-btn text class="hidden-sm-and-down" v-on="on">Dropdown Menu</v-btn>
         </template>
         <v-list>
           <v-list-item v-for="(link, index) in links" :key="index" :to="link.route">
