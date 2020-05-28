@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <h1>Card</h1>
     <v-container class="my-5">
+      <h1>Card</h1>
       <v-layout row wrap>
         <v-flex xs12 sm6 md4 lg3 v-for="(card, index) in cards" :key="index">
           <v-card class="ma-3 text-center">
