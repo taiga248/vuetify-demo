@@ -38,7 +38,9 @@
         </v-flex>
       </v-layout>
       <br />
+
       <v-divider class="pa-3"></v-divider>
+
       <h1>DashBoard</h1>
       <v-card class="my-4 px-4 py-3" v-for="project in projects" :key="project.title">
         <v-layout row wrap>
@@ -63,7 +65,7 @@
               <v-chip
                 :color="statusColor(project.status)"
                 text-color="white"
-                class="caption ma-2"
+                class="caption px-2 my-2"
               >{{ project.status }}</v-chip>
             </div>
           </v-flex>
@@ -114,11 +116,11 @@ export default {
     statusColor: function(status) {
       switch (status) {
         case "done":
-          return "success";
+          return "rgb(48, 209, 88)";
         case "WIP":
-          return "primary";
+          return "rgb(10, 132, 255)";
         case "new":
-          return "red";
+          return "rgb(255, 55, 95)";
         default:
           break;
       }
@@ -126,18 +128,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.done {
-  background: rgb(10, 132, 255);
-  color: blue;
-}
-.WIP {
-  background: rgb(48, 209, 88);
-  color: green;
-}
-.new {
-  background: rgb(255, 55, 95);
-  color: red;
-}
-</style>
