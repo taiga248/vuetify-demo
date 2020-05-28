@@ -6,7 +6,7 @@
         <v-row class="text-center">
           <v-col :href="link.url" v-for="(link, index) in links" :key="index">
             <a class="icon" :href="link.url" target="__blank">
-              <v-icon class="display-2">{{ link.icon }}</v-icon>
+              <v-icon x-large>{{ link.icon }}</v-icon>
             </a>
           </v-col>
         </v-row>

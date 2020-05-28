@@ -40,17 +40,17 @@
       <br />
       <v-divider class="pa-3"></v-divider>
       <h1>DashBoard</h1>
-      <v-card class="my-4" v-for="project in projects" :key="project.title">
-        <v-layout row wrap class="pa-5 m1">
-          <v-flex xs12 md5>
-            <div class="grey--text">Project title</div>
+      <v-card class="my-4 px-4 py-3" v-for="project in projects" :key="project.title">
+        <v-layout row wrap>
+          <v-flex xs12 md5 class="pl-4">
+            <div class="caption grey--text">Project title</div>
             <div>{{ project.title }}</div>
           </v-flex>
-          <v-flex xs4 md2>
-            <div class="caption grey--text">Assigned Team</div>
+          <v-flex xs3 md2 class="pl-4">
+            <div class="caption grey--text">Team</div>
             <div>{{ project.team }}</div>
           </v-flex>
-          <v-flex xs3 md2>
+          <v-flex xs4 md2>
             <div class="caption grey--text">Place</div>
             <div>{{ project.place }}</div>
           </v-flex>
@@ -60,9 +60,10 @@
           </v-flex>
           <v-flex xs2 md1>
             <div>
-              <!-- なぜかできない status で色変更 -->
               <v-chip
-                :class="`${project.status} white--text grey caption my-2`"
+                :color="statusColor(project.status)"
+                text-color="white"
+                class="caption ma-2"
               >{{ project.status }}</v-chip>
             </div>
           </v-flex>
@@ -97,17 +98,31 @@ export default {
           team: "C",
           place: "Tokyo",
           date: "2020",
-          status: "progress"
+          status: "WIP"
         },
         {
           title: "Project-4",
           team: "A",
           place: "Osaka",
           date: "2020",
-          status: "todo"
+          status: "new"
         }
       ]
     };
+  },
+  methods: {
+    statusColor: function(status) {
+      switch (status) {
+        case "done":
+          return "success";
+        case "WIP":
+          return "primary";
+        case "new":
+          return "red";
+        default:
+          break;
+      }
+    }
   }
 };
 </script>
@@ -117,11 +132,11 @@ export default {
   background: rgb(10, 132, 255);
   color: blue;
 }
-.progress {
+.WIP {
   background: rgb(48, 209, 88);
   color: green;
 }
-.todo {
+.new {
   background: rgb(255, 55, 95);
   color: red;
 }
