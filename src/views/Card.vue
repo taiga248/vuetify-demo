@@ -34,7 +34,6 @@ export default {
   name: "Card",
   data() {
     return {
-      isActive: false,
       cards: [
         { name: "Yuki", from: "Japan", avatar: "https://picsum.photos/195" },
         { name: "Jake", from: "USA", avatar: "https://picsum.photos/196" },

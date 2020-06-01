@@ -63,6 +63,20 @@
           </v-flex>
         </v-layout>
       </template>
+
+      <v-divider class="my-10"></v-divider>
+
+      <template>
+        <v-carousel cycle height="400" hide-delimiter-background show-arrows-on-hover>
+          <v-carousel-item v-for="(slide, index) in slides" :key="index">
+            <v-sheet :color="colors[index]" height="100%">
+              <v-row class="fill-height" align="center" justify="center">
+                <div class="display-3">{{ slide }} Slide</div>
+              </v-row>
+            </v-sheet>
+          </v-carousel-item>
+        </v-carousel>
+      </template>
     </v-container>
   </div>
 </template>
@@ -72,7 +86,14 @@ export default {
   name: "About",
   data() {
     return {
-      isActive: false
+      colors: [
+        "indigo",
+        "warning",
+        "pink darken-2",
+        "red lighten-1",
+        "deep-purple accent-4"
+      ],
+      slides: ["First", "Second", "Third", "Fourth", "Fifth"]
     };
   }
 };
