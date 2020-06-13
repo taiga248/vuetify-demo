@@ -120,7 +120,6 @@ export default {
       place: "",
       teams: ["A", "B", "C"],
       project_status: ["done", "WIP", "new"],
-
       projects: [
         {
           title: "Project-1",
@@ -151,7 +150,6 @@ export default {
       this.formDrawer = !this.formDrawer;
       let now = new Date();
       let year = now.getFullYear();
-
       const newTask = {
         title: this.title,
         team: this.team,
@@ -159,9 +157,7 @@ export default {
         date: year,
         status: "new"
       };
-
       this.projects.push(newTask);
-
       this.title = "";
       this.place = "";
     },
