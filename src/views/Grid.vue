@@ -40,9 +40,43 @@
       <br />
 
       <v-divider class="pa-3"></v-divider>
+      <v-layout row wrap>
+        <v-flex xs6>
+          <h1>DashBoard</h1>
+        </v-flex>
 
-      <h1>DashBoard</h1>
-      <v-card class="my-4 px-4 py-3" v-for="project in projects" :key="project.title">
+        <v-flex class="my-auto">
+          <div class="text-center">
+            <v-dialog v-model="formDrawer" width="500">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn v-bind="attrs" v-on="on">プロジェクト追加</v-btn>
+              </template>
+
+              <v-card>
+                <v-card-title primary-title>Add new project</v-card-title>
+                <v-card-text>
+                  <v-form class="px-3">
+                    <v-text-field label="Project title" v-model="title" prepend-icon="mdi-folder"></v-text-field>
+                    <v-select
+                      :items="teams"
+                      v-model="team"
+                      label="Team"
+                      prepend-icon="mdi-account-check"
+                    ></v-select>
+                    <v-text-field label="place" v-model="place" prepend-icon="mdi-map-marker"></v-text-field>
+                  </v-form>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn color="primary" text @click="submit">Add</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
+          </div>
+        </v-flex>
+      </v-layout>
+
+      <v-card class="my-4 px-4 py-3" v-for="(project, index) in projects" :key="index">
         <v-layout row wrap>
           <v-flex xs12 md5 class="pl-4">
             <div class="caption grey--text">Project title</div>
@@ -80,6 +114,13 @@ export default {
   name: "Grid",
   data() {
     return {
+      formDrawer: false,
+      title: "",
+      team: [],
+      place: "",
+      teams: ["A", "B", "C"],
+      project_status: ["done", "WIP", "new"],
+
       projects: [
         {
           title: "Project-1",
@@ -90,20 +131,13 @@ export default {
         },
         {
           title: "Project-2",
-          team: "A",
-          place: "Chiba",
-          date: "2020",
-          status: "done"
-        },
-        {
-          title: "Project-3",
           team: "C",
           place: "Tokyo",
           date: "2020",
           status: "WIP"
         },
         {
-          title: "Project-4",
+          title: "Project-3",
           team: "A",
           place: "Osaka",
           date: "2020",
@@ -113,6 +147,24 @@ export default {
     };
   },
   methods: {
+    submit() {
+      this.formDrawer = !this.formDrawer;
+      let now = new Date();
+      let year = now.getFullYear();
+
+      const newTask = {
+        title: this.title,
+        team: this.team,
+        place: this.place,
+        date: year,
+        status: "new"
+      };
+
+      this.projects.push(newTask);
+
+      this.title = "";
+      this.place = "";
+    },
     statusColor: function(status) {
       switch (status) {
         case "done":
