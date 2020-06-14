@@ -1,6 +1,6 @@
-# This is for studying Vuetify.
+# Vuetify sample
 
-[here](https://taiga248.github.io/vuetify-demo/)
+[here](https://taiga248.github.io/Vuetify-demo/)
 
 ## Project setup
 ```
