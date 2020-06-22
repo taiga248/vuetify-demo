@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       links: [
-        { icon: "mdi-twitter", url: "https://twitter.com/ez_taiga" },
+        { icon: "mdi-twitter", url: "https://twitter.com/En_358" },
         { icon: "mdi-github", url: "https://github.com/taiga248" },
         { icon: "mdi-instagram", url: "https://www.instagram.com/tg_____n/" },
         { icon: "mdi-gmail", url: "https://google.com" },
